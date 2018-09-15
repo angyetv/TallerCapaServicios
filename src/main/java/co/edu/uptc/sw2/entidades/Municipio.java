@@ -4,11 +4,13 @@ public class Municipio {
 
     private int id;
     private String nombre;
-    private static int AUTO_ID = 0;
 
-    public Municipio(String nombre) {
+    public Municipio() {
+    }
+
+    public Municipio(int id, String nombre) {
         this.nombre = nombre;
-        this.id = AUTO_ID++;
+        this.id = id;
     }
 
     public String getNombre() {

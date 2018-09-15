@@ -36,9 +36,9 @@ public class Almacenamiento {
         this.listProfesors = new ArrayList<>();
         this.listHorarios = new ArrayList<>();
 
-        this.listMunicipios.add(new Municipio("Tunja"));
-        this.listMunicipios.add(new Municipio("Duitama"));
-        this.listMunicipios.add(new Municipio("Umbita"));
+        this.listMunicipios.add(new Municipio(1,"Tunja"));
+        this.listMunicipios.add(new Municipio(2,"Duitama"));
+        this.listMunicipios.add(new Municipio(3,"Umbita"));
 
 //        listFacultads.add(new Facultad("Ingenieria"));
 //        listCarreras.add(new Carrera("Ingenieria de Sistemas", listFacultads.get(0)));

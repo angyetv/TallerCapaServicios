@@ -7,7 +7,6 @@ co\edu\uptc\sw2\entidades\Matricula.class
 co\edu\uptc\sw2\servicios\ServicioMateria.class
 co\edu\uptc\sw2\servicios\ServicioHorario.class
 co\edu\uptc\sw2\entidades\Horario.class
-co\edu\uptc\sw2\servicios\ServicioMiunicipio.class
 co\edu\uptc\sw2\entidades\Municipio.class
 co\edu\uptc\sw2\entidades\Carrera.class
 co\edu\uptc\sw2\servicios\ServicioEstudiante.class

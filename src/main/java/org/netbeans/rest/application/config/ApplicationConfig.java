@@ -25,7 +25,7 @@ public class ApplicationConfig extends Application {
         resources.add(co.edu.uptc.sw2.servicios.ServicioHorario.class);
         resources.add(co.edu.uptc.sw2.servicios.ServicioMateria.class);
         resources.add(co.edu.uptc.sw2.servicios.ServicioMatricula.class);
-        resources.add(co.edu.uptc.sw2.servicios.ServicioMiunicipio.class);
+        resources.add(co.edu.uptc.sw2.servicios.ServicioMunicipio.class);
         resources.add(co.edu.uptc.sw2.servicios.ServicioProfesor.class);
     }
 }

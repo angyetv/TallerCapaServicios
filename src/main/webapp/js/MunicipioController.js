@@ -24,11 +24,16 @@ module.controller('MunicipioCtrl', ['$scope', '$filter', '$http', function ($sco
         $scope.eliminar = function (data) {
             if (confirm('\xbfDesea elminar este registro?')) {
                 for (var i = 0; i < $scope.lista.length; i++) {
-                    if ($scope.lista[i] == data) {
+                    if ($scope.lista[i] === data) {
                         $scope.lista.splice(i, 1);
                         break;
                     }
                 }
+                console.log("Eliminar " + data);
+                $.ajax({
+                    url: './webresources/ServicioMunicipio/' + data.id,
+                    type: 'DELETE',
+                });
             }
         };
 
@@ -42,15 +47,13 @@ module.controller('MunicipioCtrl', ['$scope', '$filter', '$http', function ($sco
         };
 
         $scope.guardarMunicipio = function () {
-            $http.post("./webresources/ServicioMunicipio", $scope.nuevoMunicipio)
+            $http.post("./webresources/ServicioMunicipio", $scope.datosFormulario)
                     .then(function (response) {
                         $scope.getMunicipios();
                     });
-        }
-
-        $scope.guardar = function () {
             $scope.lista.push($scope.datosFormulario);
             $scope.panelEditar = false;
         };
+
         $scope.getMunicipios();
     }]);
