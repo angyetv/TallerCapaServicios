@@ -11,8 +11,9 @@ public class Estudiante {
     private Date fechaNacimiento;
     private String carrera;
     private String municipio;
+    private int id;
 
-    public Estudiante(String nombre, String apellidos, String codigo, String documento, Date fechaNacimiento, String carrera, String municipio) {
+    public Estudiante(int id ,String nombre, String apellidos, String codigo, String documento, Date fechaNacimiento, String carrera, String municipio) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.codigo = codigo;
@@ -20,8 +21,12 @@ public class Estudiante {
         this.fechaNacimiento = fechaNacimiento;
         this.carrera = carrera;
         this.municipio = municipio;
+        this.id = id;
     }
 
+    public Estudiante() {
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -60,5 +65,29 @@ public class Estudiante {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

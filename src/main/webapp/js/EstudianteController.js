@@ -3,8 +3,8 @@
 module.controller('EstudiantesCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
         //listar
         $scope.lista = null;
-        $scope.listaMunicipio = listaMunicipios;
-        $scope.listaCarrera = listaCarreras;
+        $scope.listaMunicipio = null;
+        $scope.listaCarrera = null;
 
         $scope.datosFormulario = {};
         $scope.panelEditar = false;
@@ -61,5 +61,6 @@ module.controller('EstudiantesCtrl', ['$scope', '$filter', '$http', function ($s
             }
             $scope.panelEditar = false;
         };
+        
         $scope.getEstudiantes();
     }]);

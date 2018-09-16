@@ -28,7 +28,7 @@ public class ServicioCarrera {
                 return carrera;
             }
         }
-        carrera.setId(Almacenamiento.getInstance().getListMunicipios().size() + 1);
+        carrera.setId(Almacenamiento.getInstance().getListCarreras().size() + 1);
         Almacenamiento.getInstance().getListCarreras().add(carrera);
         return carrera;
     }
