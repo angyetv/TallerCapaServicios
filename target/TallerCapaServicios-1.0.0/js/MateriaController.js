@@ -59,6 +59,7 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
         $scope.guardarMateria = function () {
             $http.post("./webresources/ServicioMateria", $scope.datosFormulario)
                     .then(function (response) {
+                        console.log('guarda materia'+$scope.datosFormulario);
                         $scope.getMaterias();
                     });
             $scope.panelEditar = false;
@@ -78,7 +79,6 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
             $scope.lista = null;
             $http.get("./webresources/ServicioProfesor", {})
                     .then(function (response) {
-                        console.log('profesores: '+response.data);
                         $scope.listaProfes = response.data;
                     }, function () {
                         alert("Error al consultar el Profesores");

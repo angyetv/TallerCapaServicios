@@ -49,6 +49,7 @@ module.controller('HorarioCtrl', ['$scope', '$filter', '$http', function ($scope
         };
 
         $scope.guardarHorario = function () {
+            console.log("esta guardando horario")
             $http.post("./webresources/ServicioHorario", $scope.datosFormulario)
                     .then(function (response) {
                         $scope.getHorarios();

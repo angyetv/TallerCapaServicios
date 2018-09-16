@@ -19,6 +19,9 @@ public class Materia {
         this.id = id;
     }
 
+    public Materia() {
+    }
+
     public String getNombre() {
         return nombre;
     }
