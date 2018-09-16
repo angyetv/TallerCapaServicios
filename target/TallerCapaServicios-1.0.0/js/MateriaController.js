@@ -3,15 +3,11 @@
 module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
         //listar
         $scope.lista = null;
-        $scope.id = 3;
-
-        $scope.listaCarrera = listaCarreras;
-        $scope.listaProfes = listaProfes;
+        $scope.listaCarrera = null;
+        $scope.listaProfes = null;
 
         $scope.datosFormulario = {horario: []};
         $scope.panelEditar = false;
-
-
 
         //guardar
         $scope.nuevo = function () {
@@ -19,25 +15,11 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
             //$scope.datosFormulario = {horario:[]};
         };
 
-
         $scope.nuevoHorario = function () {
             $scope.datosHorario = {};
             $('#modalHorario').modal('show');
-        }
-
-        $scope.guardar = function () {
-            $scope.errores = {};
-            var error = false;
-
-            if (error)
-                return;
-
-            if (!$scope.datosFormulario.id) {
-                $scope.datosFormulario.id = $scope.id++;
-                $scope.lista.push($scope.datosFormulario);
-            }
-            $scope.panelEditar = false;
         };
+
         $scope.cancelar = function () {
             $scope.panelEditar = false;
             $scope.datosFormulario = {};
@@ -50,20 +32,38 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
         };
         //eliminar
         $scope.eliminar = function (data) {
-            if (confirm('\xbfDesea elminar este registro?')) {
-                for (var i = 0; i < $scope.lista.length; i++) {
-                    if ($scope.lista[i] == data) {
-                        $scope.lista.splice(i, 1);
-                        break;
-                    }
+            for (var i = 0; i < $scope.lista.length; i++) {
+                if ($scope.lista[i] === data) {
+                    $scope.lista.splice(i, 1);
+                    break;
                 }
             }
+            console.log("Eliminado " + data.nombre);
+            $.ajax({
+                url: './webresources/ServicioMateria/' + data.id,
+                type: 'DELETE'
+            });
         };
 
-        $scope.guardarHorario = function () {
-            $scope.datosFormulario.horario.push($scope.datosHorario);
-            $('#modalHorario').modal('hide');
-        }
+        $scope.getMaterias = function () {
+            $scope.lista = null;
+            $http.get("./webresources/ServicioMateria", {})
+                    .then(function (response) {
+                        console.log(response.data);
+                        $scope.lista = response.data;
+                    }, function () {
+                        alert("Error al consultar Materias");
+                    });
+        };
+
+        $scope.guardarMateria = function () {
+            $http.post("./webresources/ServicioMateria", $scope.datosFormulario)
+                    .then(function (response) {
+                        $scope.getMaterias();
+                    });
+            $scope.panelEditar = false;
+        };
+        $scope.getMaterias();
     }]);
 
 

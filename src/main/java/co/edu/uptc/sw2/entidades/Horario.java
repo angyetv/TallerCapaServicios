@@ -2,14 +2,16 @@ package co.edu.uptc.sw2.entidades;
 
 public class Horario {
 
+    private int id;
     private int dia;
     private int horaInicio;
     private int horaFin;
 
-    public Horario(int dia, int horaInicio, int horaFin) {
+    public Horario(int id, int dia, int horaInicio, int horaFin) {
         this.dia = dia;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
+        this.id = id;
     }
 
     public int getDia() {
@@ -34,5 +36,13 @@ public class Horario {
 
     public void setHoraFin(int horaFin) {
         this.horaFin = horaFin;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -4,16 +4,18 @@ import java.util.ArrayList;
 
 public class Materia {
 
+    private int id;
     private String nombre;
     private int creditos;
     private Profesor profesor;
     private ArrayList<Horario> horario;
 
-    public Materia(String nombre, int creditos, Profesor profesor, ArrayList<Horario> horario) {
+    public Materia(int id, String nombre, int creditos, Profesor profesor, ArrayList<Horario> horario) {
         this.nombre = nombre;
         this.creditos = creditos;
         this.profesor = profesor;
         this.horario = horario;
+        this.id = id;
     }
 
     public String getNombre() {
@@ -46,5 +48,13 @@ public class Materia {
 
     public void setHorario(ArrayList<Horario> horario) {
         this.horario = horario;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
