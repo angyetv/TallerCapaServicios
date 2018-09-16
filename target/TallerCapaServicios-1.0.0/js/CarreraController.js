@@ -17,6 +17,12 @@ module.controller('CarreraCtrl', ['$scope', '$filter', '$http', function ($scope
             $scope.panelEditar = false;
             $scope.datosFormulario = {};
         };
+        
+        //editar
+        $scope.editar = function (data) {
+            $scope.panelEditar = true;
+            $scope.datosFormulario = data;
+        };
 
         //eliminar
         $scope.eliminar = function (data) {
