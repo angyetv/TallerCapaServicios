@@ -22,22 +22,23 @@ module.controller('MunicipioCtrl', ['$scope', '$filter', '$http', function ($sco
         };
         //eliminar
         $scope.eliminar = function (data) {
-            if (confirm('\xbfDesea elminar este registro?')) {
-                for (var i = 0; i < $scope.lista.length; i++) {
-                    if ($scope.lista[i] === data) {
-                        $scope.lista.splice(i, 1);
-                        break;
-                    }
+//            if (confirm('\xbfDesea elminar este registro?')) {
+            for (var i = 0; i < $scope.lista.length; i++) {
+                if ($scope.lista[i] === data) {
+                    $scope.lista.splice(i, 1);
+                    break;
                 }
-                console.log("Eliminar " + data);
-                $.ajax({
-                    url: './webresources/ServicioMunicipio/' + data.id,
-                    type: 'DELETE',
-                });
             }
+            console.log("Eliminado " + data.nombre);
+            $.ajax({
+                url: './webresources/ServicioMunicipio/' + data.nombre,
+                type: 'DELETE'
+            });
+//            }
         };
 
         $scope.getMunicipios = function () {
+            $scope.lista = null;
             $http.get("./webresources/ServicioMunicipio", {})
                     .then(function (response) {
                         $scope.lista = response.data;
@@ -51,9 +52,7 @@ module.controller('MunicipioCtrl', ['$scope', '$filter', '$http', function ($sco
                     .then(function (response) {
                         $scope.getMunicipios();
                     });
-            $scope.lista.push($scope.datosFormulario);
             $scope.panelEditar = false;
         };
-
         $scope.getMunicipios();
     }]);

@@ -2,8 +2,8 @@ package co.edu.uptc.sw2.entidades;
 
 public class Municipio {
 
-    private int id;
     private String nombre;
+    private int id;
 
     public Municipio() {
     }

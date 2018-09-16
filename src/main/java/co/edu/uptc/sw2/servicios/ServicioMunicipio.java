@@ -19,14 +19,24 @@ public class ServicioMunicipio {
 
     @POST
     public Municipio guardarMunicipio(Municipio municipio) {
-        municipio.setId(Almacenamiento.getInstance().getListEstudiantes().size() + 1);
+        for (int i = 0; i < Almacenamiento.getInstance().getListMunicipios().size(); i++) {
+            if (Almacenamiento.getInstance().getListMunicipios().get(i).getId() == (municipio.getId())) {
+                Almacenamiento.getInstance().getListMunicipios().get(i).setNombre(municipio.getNombre());
+                return municipio;
+            }
+        }
+        municipio.setId(Almacenamiento.getInstance().getListMunicipios().size() + 1);
         Almacenamiento.getInstance().getListMunicipios().add(municipio);
         return municipio;
     }
 
     @DELETE
-    @Path("/{id}")
-    public void deleteMunicipio(@PathParam("id") int id) {
-        Almacenamiento.getInstance().getListMunicipios().remove(id - 1);
+    @Path("/{name}")
+    public void deleteMunicipio(@PathParam("name") String name) {
+        for (int i = 0; i < Almacenamiento.getInstance().getListMunicipios().size(); i++) {
+            if (Almacenamiento.getInstance().getListMunicipios().get(i).getNombre().equals(name)) {
+                Almacenamiento.getInstance().getListMunicipios().remove(i);
+            }
+        }
     }
 }
