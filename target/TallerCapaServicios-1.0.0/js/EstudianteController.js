@@ -37,13 +37,14 @@ module.controller('EstudiantesCtrl', ['$scope', '$filter', '$http', function ($s
         };
 
         $scope.guardar = function () {
+            console.log($scope.datosFormulario);
             $http.post("./webresources/ServicioEstudiante", $scope.datosFormulario)
                     .then(function (response) {
                         $scope.getEstudiantes();
                     });
             $scope.panelEditar = false;
         };
-        
+
         //eliminar
         $scope.eliminar = function (data) {
             if (confirm('\xbfDesea elminar este registro?')) {
@@ -55,7 +56,7 @@ module.controller('EstudiantesCtrl', ['$scope', '$filter', '$http', function ($s
                 });
             }
         };
-        
+
         $scope.getMunicipios = function () {
             $scope.lista = null;
             $http.get("./webresources/ServicioMunicipio", {})
@@ -65,7 +66,7 @@ module.controller('EstudiantesCtrl', ['$scope', '$filter', '$http', function ($s
                         alert("Error al consultar el Municipios");
                     });
         };
-        
+
         $scope.getCarrera = function () {
             $scope.lista = null;
             $http.get("./webresources/ServicioCarrera", {})
@@ -75,7 +76,7 @@ module.controller('EstudiantesCtrl', ['$scope', '$filter', '$http', function ($s
                         alert("Error al consultar la Carreras");
                     });
         };
-        
+
         $scope.getCarrera();
         $scope.getMunicipios();
         $scope.getEstudiantes();
