@@ -21,6 +21,7 @@ module.controller('HorarioCtrl', ['$scope', '$filter', '$http', function ($scope
             $scope.panelEditar = true;
             $scope.datosFormulario = data;
         };
+        
         //eliminar
         $scope.eliminar = function (data) {
             for (var i = 0; i < $scope.lista.length; i++) {
@@ -47,7 +48,7 @@ module.controller('HorarioCtrl', ['$scope', '$filter', '$http', function ($scope
                     });
         };
 
-        $scope.guardarMunicipio = function () {
+        $scope.guardarHorario = function () {
             $http.post("./webresources/ServicioHorario", $scope.datosFormulario)
                     .then(function (response) {
                         $scope.getHorarios();

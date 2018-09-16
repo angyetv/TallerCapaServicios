@@ -5,7 +5,7 @@ module.controller('EstudiantesCtrl', ['$scope', '$filter', '$http', function ($s
         $scope.lista = null;
         $scope.listaMunicipio = null;
         $scope.listaCarrera = null;
-
+        
         $scope.datosFormulario = {};
         $scope.panelEditar = false;
 

@@ -14,6 +14,9 @@ public class Horario {
         this.id = id;
     }
 
+    public Horario() {
+    }
+    
     public int getDia() {
         return dia;
     }
