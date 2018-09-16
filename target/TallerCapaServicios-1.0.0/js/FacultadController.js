@@ -3,9 +3,8 @@
 module.controller('FacultadCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
         //listar
         $scope.lista = null;
-        $scope.id = 3;
-
         $scope.datosFormulario = {};
+        $scope.id = 3;
         $scope.panelEditar = false;
 
         //guardar
@@ -24,30 +23,40 @@ module.controller('FacultadCtrl', ['$scope', '$filter', '$http', function ($scop
             $scope.panelEditar = true;
             $scope.datosFormulario = data;
         };
-        //eliminar
+        
+       //eliminar
         $scope.eliminar = function (data) {
-            if (confirm('\xbfDesea elminar este registro?')) {
-                for (var i = 0; i < $scope.lista.length; i++) {
-                    if ($scope.lista[i] == data) {
-                        $scope.lista.splice(i, 1);
-                        break;
-                    }
+            for (var i = 0; i < $scope.lista.length; i++) {
+                if ($scope.lista[i] === data) {
+                    $scope.lista.splice(i, 1);
+                    break;
                 }
             }
+            console.log("Eliminado " + data.nombre);
+            $.ajax({
+                url: './webresources/ServicioFacultad/' + data.nombre,
+                type: 'DELETE'
+            });
         };
 
-        $scope.guardar = function () {
-            $scope.errores = {};
-            var error = false;
-            if (error)
-                return;
-            if (!$scope.datosFormulario.id) {
-                $http.post("./webresources/ServicioFacultad", $scope.nuevoFacultad)
-                        .then(function (response) {
-                            $scope.getFacultad();
-                        });
-                $http;
-            }
+        $scope.getFacultades = function () {
+            $scope.lista = null;
+            $http.get("./webresources/ServicioFacultad", {})
+                    .then(function (response) {
+                        $scope.lista = response.data;
+                    }, function () {
+                        alert("Error al consultar el Facultad");
+                    });
+        };
+
+        $scope.guardarFacultad = function () {
+            $http.post("./webresources/ServicioFacultad", $scope.datosFormulario)
+                    .then(function (response) {
+                        $scope.getFacultades();
+                    });
             $scope.panelEditar = false;
         };
+        
+        $scope.getFacultades();
+        
     }]);

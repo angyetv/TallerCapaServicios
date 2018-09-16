@@ -41,7 +41,9 @@ public class Almacenamiento {
         this.listMunicipios.add(new Municipio(3, "Duitama"));
 //        this.listMunicipios.add(new Municipio("Sogamoso"));
 
-//        listFacultads.add(new Facultad("Ingenieria"));
+        listFacultads.add(new Facultad(1, "Ingenieria"));
+        listFacultads.add(new Facultad(2, "Ciencias"));
+        listFacultads.add(new Facultad(3, "Educacion"));
 //        listCarreras.add(new Carrera("Ingenieria de Sistemas", listFacultads.get(0)));
 //        listEstudiantes.add(new Estudiante("daniela", "torrres", "Veloza", "we", null, null, null));
     }
