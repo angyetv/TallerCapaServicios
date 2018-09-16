@@ -25,17 +25,6 @@ module.controller('EstudiantesCtrl', ['$scope', '$filter', '$http', function ($s
             $scope.panelEditar = true;
             $scope.datosFormulario = data;
         };
-        //eliminar
-        $scope.eliminar = function (data) {
-            if (confirm('\xbfDesea elminar este registro?')) {
-                for (var i = 0; i < $scope.lista.length; i++) {
-                    if ($scope.lista[i] == data) {
-                        $scope.lista.splice(i, 1);
-                        break;
-                    }
-                }
-            }
-        };
 
         $scope.getEstudiantes = function () {
             $http.get("./webresources/ServicioEstudiante", {})
@@ -48,19 +37,46 @@ module.controller('EstudiantesCtrl', ['$scope', '$filter', '$http', function ($s
         };
 
         $scope.guardar = function () {
-            $scope.errores = {};
-            var error = false;
-            if (error)
-                return;
-            if (!$scope.datosFormulario.id) {
-                $http.post("./webresources/ServicioEstudiante", $scope.nuevoEstudiante)
-                        .then(function (response) {
-                            $scope.getEstudiantes();
-                        });
-                $http;
-            }
+            $http.post("./webresources/ServicioEstudiante", $scope.datosFormulario)
+                    .then(function (response) {
+                        $scope.getEstudiantes();
+                    });
             $scope.panelEditar = false;
         };
         
+        //eliminar
+        $scope.eliminar = function (data) {
+            if (confirm('\xbfDesea elminar este registro?')) {
+                $http.delete('./webresources/ServicioEstudiante/' + data.nombre, {})
+                        .success(function (data, status, headers, config) {
+                            $scope.getEstudiantes();
+                        }).error(function (data, status, headers, config) {
+                    alert('Error al eliminar la informaci\xf3n de Estudiante, por favor intente m\xe1s tarde');
+                });
+            }
+        };
+        
+        $scope.getMunicipios = function () {
+            $scope.lista = null;
+            $http.get("./webresources/ServicioMunicipio", {})
+                    .then(function (response) {
+                        $scope.listaMunicipio = response.data;
+                    }, function () {
+                        alert("Error al consultar el Municipios");
+                    });
+        };
+        
+        $scope.getCarrera = function () {
+            $scope.lista = null;
+            $http.get("./webresources/ServicioCarrera", {})
+                    .then(function (response) {
+                        $scope.listaCarrera = response.data;
+                    }, function () {
+                        alert("Error al consultar la Carreras");
+                    });
+        };
+        
+        $scope.getCarrera();
+        $scope.getMunicipios();
         $scope.getEstudiantes();
     }]);

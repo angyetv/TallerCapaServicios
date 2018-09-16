@@ -1,7 +1,6 @@
 package co.edu.uptc.sw2.servicios;
 
 import c.edu.uptc.sw2.persistencia.Almacenamiento;
-import co.edu.uptc.sw2.entidades.Carrera;
 import co.edu.uptc.sw2.entidades.Estudiante;
 import java.util.ArrayList;
 import javax.ws.rs.DELETE;
@@ -13,6 +12,9 @@ import javax.ws.rs.PathParam;
 @Path("ServicioEstudiante")
 public class ServicioEstudiante {
 
+    public ServicioEstudiante() {
+    }
+    
     @GET
     public ArrayList<Estudiante> consultarEstudiante() {
         return Almacenamiento.getInstance().getListEstudiantes();

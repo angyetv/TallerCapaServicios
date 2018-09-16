@@ -47,7 +47,7 @@ public class Almacenamiento {
         
         this.listProfesors.add(new Profesor(1, "Daniela", "Torres", "1234"));
         this.listProfesors.add(new Profesor(2, "Pedro", "Aguirre", "1234"));
-//        listCarreras.add(new Carrera("Ingenieria de Sistemas", listFacultads.get(0)));
+        listCarreras.add(new Carrera(1,"Ingenieria de Sistemas", listFacultads.get(0)));
 //        listEstudiantes.add(new Estudiante("daniela", "torrres", "Veloza", "we", null, null, null));
     }
     

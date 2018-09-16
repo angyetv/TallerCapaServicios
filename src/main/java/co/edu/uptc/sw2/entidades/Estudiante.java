@@ -8,12 +8,12 @@ public class Estudiante {
     private String apellidos;
     private String codigo;
     private String documento;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     private String carrera;
     private String municipio;
     private int id;
 
-    public Estudiante(int id ,String nombre, String apellidos, String codigo, String documento, Date fechaNacimiento, String carrera, String municipio) {
+    public Estudiante(int id ,String nombre, String apellidos, String codigo, String documento, String fechaNacimiento, String carrera, String municipio) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.codigo = codigo;
@@ -25,6 +25,7 @@ public class Estudiante {
     }
 
     public Estudiante() {
+        
     }
     
     public String getNombre() {
@@ -59,11 +60,11 @@ public class Estudiante {
         this.documento = documento;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
