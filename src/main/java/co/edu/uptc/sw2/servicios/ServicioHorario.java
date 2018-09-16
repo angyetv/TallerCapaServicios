@@ -12,6 +12,10 @@ import javax.ws.rs.PathParam;
 @Path("ServicioHorario")
 public class ServicioHorario {
 
+    public ServicioHorario() {
+        
+    }
+    
     @GET
     public ArrayList<Horario> getHorarios() {
         return Almacenamiento.getInstance().getListHorarios();

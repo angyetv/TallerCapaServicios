@@ -57,9 +57,9 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
         };
 
         $scope.guardarMateria = function () {
+            console.log('guarda materia'+$scope.datosFormulario);
             $http.post("./webresources/ServicioMateria", $scope.datosFormulario)
                     .then(function (response) {
-                        console.log('guarda materia'+$scope.datosFormulario);
                         $scope.getMaterias();
                     });
             $scope.panelEditar = false;
@@ -88,6 +88,11 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
         $scope.getProfesores();
         $scope.getCarrera();
         $scope.getMaterias();
+        
+        $scope.guardarHorario = function () {
+            $scope.datosFormulario.horario.push($scope.datosHorario);
+            $('#modalHorario').modal('hide');
+        }
     }]);
 
 

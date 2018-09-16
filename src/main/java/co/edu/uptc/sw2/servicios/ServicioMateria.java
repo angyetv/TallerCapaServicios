@@ -1,7 +1,6 @@
 package co.edu.uptc.sw2.servicios;
 
 import c.edu.uptc.sw2.persistencia.Almacenamiento;
-import co.edu.uptc.sw2.entidades.Facultad;
 import co.edu.uptc.sw2.entidades.Materia;
 import java.util.ArrayList;
 import javax.ws.rs.DELETE;
