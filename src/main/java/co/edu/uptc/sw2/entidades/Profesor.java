@@ -2,22 +2,27 @@ package co.edu.uptc.sw2.entidades;
 
 public class Profesor {
 
-    private String nombre;
+    private int id;
+    private String nombres;
     private String apellidos;
     private String documento;
 
-    public Profesor(String nombre, String apellidos, String documento) {
-        this.nombre = nombre;
+    public Profesor() {
+    }
+
+    public Profesor(int id, String nombres, String apellidos, String documento) {
+        this.nombres = nombres;
         this.apellidos = apellidos;
         this.documento = documento;
+        this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getApellidos() {
@@ -34,5 +39,13 @@ public class Profesor {
 
     public void setDocumento(String documento) {
         this.documento = documento;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

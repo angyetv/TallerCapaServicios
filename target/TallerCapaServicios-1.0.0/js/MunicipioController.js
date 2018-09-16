@@ -22,7 +22,6 @@ module.controller('MunicipioCtrl', ['$scope', '$filter', '$http', function ($sco
         };
         //eliminar
         $scope.eliminar = function (data) {
-//            if (confirm('\xbfDesea elminar este registro?')) {
             for (var i = 0; i < $scope.lista.length; i++) {
                 if ($scope.lista[i] === data) {
                     $scope.lista.splice(i, 1);
@@ -34,13 +33,13 @@ module.controller('MunicipioCtrl', ['$scope', '$filter', '$http', function ($sco
                 url: './webresources/ServicioMunicipio/' + data.nombre,
                 type: 'DELETE'
             });
-//            }
         };
 
         $scope.getMunicipios = function () {
             $scope.lista = null;
             $http.get("./webresources/ServicioMunicipio", {})
                     .then(function (response) {
+                        console.log(response.data);
                         $scope.lista = response.data;
                     }, function () {
                         alert("Error al consultar el Municipios");
