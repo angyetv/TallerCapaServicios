@@ -5,7 +5,7 @@ module.controller('CarreraCtrl', ['$scope', '$filter', '$http', function ($scope
         $scope.lista = null;
         $scope.datosFormulario = {};
         $scope.panelEditar = false;
-        $scope.listaFacultad = listaFacultades;
+        $scope.listaFacultad = null;
 
         //guardar
         $scope.nuevo = function () {
@@ -13,38 +13,55 @@ module.controller('CarreraCtrl', ['$scope', '$filter', '$http', function ($scope
             $scope.datosFormulario = {};
         };
 
-        $scope.guardar = function () {
-            $scope.errores = {};
-            var error = false;
-
-            if (error)
-                return;
-
-            if (!$scope.datosFormulario.id) {
-                $scope.datosFormulario.id = $scope.id++;
-                $scope.lista.push($scope.datosFormulario);
-            }
-            $scope.panelEditar = false;
-        };
         $scope.cancelar = function () {
             $scope.panelEditar = false;
             $scope.datosFormulario = {};
         };
 
-        //editar
-        $scope.editar = function (data) {
-            $scope.panelEditar = true;
-            $scope.datosFormulario = data;
-        };
         //eliminar
         $scope.eliminar = function (data) {
-            if (confirm('\xbfDesea elminar este registro?')) {
-                for (var i = 0; i < $scope.lista.length; i++) {
-                    if ($scope.lista[i] == data) {
-                        $scope.lista.splice(i, 1);
-                        break;
-                    }
+//            if (confirm('\xbfDesea elminar este registro?')) {
+            for (var i = 0; i < $scope.lista.length; i++) {
+                if ($scope.lista[i] === data) {
+                    $scope.lista.splice(i, 1);
+                    break;
                 }
             }
+            $.ajax({
+                url: './webresources/ServicioCarrera/' + data.nombre,
+                type: 'DELETE'
+            });
+//            }
         };
+
+        $scope.getCarrera = function () {
+            $scope.lista = null;
+            $http.get("./webresources/ServicioCarrera", {})
+                    .then(function (response) {
+                        $scope.lista = response.data;
+                    }, function () {
+                        alert("Error al consultar el Carreras");
+                    });
+        };
+
+        $scope.guardarCarrera = function () {
+            $http.post("./webresources/ServicioCarrera", $scope.datosFormulario)
+                    .then(function (response) {
+                        $scope.getCarrera();
+                    });
+            $scope.panelEditar = false;
+        };
+
+        $scope.getFacultades = function () {
+            $scope.lista = null;
+            $http.get("./webresources/ServicioFacultad", {})
+                    .then(function (response) {
+                        $scope.listaFacultad = response.data;
+                    }, function () {
+                        alert("Error al consultar el Facultad");
+                    });
+        };
+
+        $scope.getCarrera();
+        $scope.getFacultades();
     }]);

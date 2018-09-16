@@ -7,6 +7,7 @@ public class Facultad {
     
     public Facultad(int id, String nombre) {
         this.nombre = nombre;
+        this.id = id;
     }
 
     public Facultad() {
