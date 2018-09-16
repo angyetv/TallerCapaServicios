@@ -2,18 +2,19 @@ package co.edu.uptc.sw2.entidades;
 
 import java.util.Date;
 
+
 public class Estudiante {
 
     private String nombre;
     private String apellidos;
     private String codigo;
     private String documento;
-    private String fechaNacimiento;
-    private String carrera;
-    private String municipio;
+    private Date fechaNacimiento;
+    private Carrera carrera;
+    private Municipio municipio;
     private int id;
 
-    public Estudiante(int id ,String nombre, String apellidos, String codigo, String documento, String fechaNacimiento, String carrera, String municipio) {
+    public Estudiante(int id ,String nombre, String apellidos, String codigo, String documento, Date fechaNacimiento, Carrera carrera, Municipio municipio) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.codigo = codigo;
@@ -60,27 +61,27 @@ public class Estudiante {
         this.documento = documento;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getCarrera() {
+    public Carrera getCarrera() {
         return carrera;
     }
 
-    public void setCarrera(String carrera) {
+    public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
     }
 
-    public String getMunicipio() {
+    public Municipio getMunicipio() {
         return municipio;
     }
 
-    public void setMunicipio(String municipio) {
+    public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
     }
 

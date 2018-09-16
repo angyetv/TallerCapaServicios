@@ -9,8 +9,9 @@ public class Materia {
     private int creditos;
     private Profesor profesor;
     private ArrayList<Horario> horario;
-
-    public Materia(int id, String nombre, int creditos, Profesor profesor, ArrayList<Horario> horario) {
+    private Carrera carrera;
+    
+    public Materia(int id, String nombre, int creditos, Profesor profesor, Carrera carrera, ArrayList<Horario> horario) {
         this.nombre = nombre;
         this.creditos = creditos;
         this.profesor = profesor;
@@ -57,4 +58,14 @@ public class Materia {
     public void setId(int id) {
         this.id = id;
     }
+
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
+    }
+    
+    
 }

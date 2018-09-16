@@ -50,7 +50,7 @@ public class Almacenamiento {
         listCarreras.add(new Carrera(1, "Ingenieria de Sistemas", listFacultads.get(0)));
 
         this.listHorarios.add(new Horario(1, 2, 10, 12));
-        this.listMaterias.add(new Materia(1, "Ing Software", 4, listProfesors.get(0), listHorarios));
+        this.listMaterias.add(new Materia(1, "Ing Software", 4, listProfesors.get(0),listCarreras.get(0), listHorarios));
 
 //        listEstudiantes.add(new Estudiante("daniela", "torrres", "Veloza", "we", null, null, null));
     }

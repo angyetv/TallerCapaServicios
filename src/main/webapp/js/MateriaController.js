@@ -63,6 +63,30 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
                     });
             $scope.panelEditar = false;
         };
+        
+        $scope.getCarrera = function () {
+            $scope.lista = null;
+            $http.get("./webresources/ServicioCarrera", {})
+                    .then(function (response) {
+                        $scope.listaCarrera = response.data;
+                    }, function () {
+                        alert("Error al consultar el Carreras");
+                    });
+        };
+        
+        $scope.getProfesores = function () {
+            $scope.lista = null;
+            $http.get("./webresources/ServicioProfesor", {})
+                    .then(function (response) {
+                        console.log('profesores: '+response.data);
+                        $scope.listaProfes = response.data;
+                    }, function () {
+                        alert("Error al consultar el Profesores");
+                    });
+        };
+        
+        $scope.getProfesores();
+        $scope.getCarrera();
         $scope.getMaterias();
     }]);
 
