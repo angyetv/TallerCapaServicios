@@ -12,10 +12,6 @@ import javax.ws.rs.PathParam;
 @Path("ServicioFacultad")
 public class ServicioFacultad {
 
-    public ServicioFacultad() {
-        
-    }
-    
     @GET
     public ArrayList<Facultad> getFacultad() {
         return Almacenamiento.getInstance().getListFacultads();

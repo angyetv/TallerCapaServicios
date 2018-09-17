@@ -12,9 +12,6 @@ import javax.ws.rs.PathParam;
 @Path("ServicioCarrera")
 public class ServicioCarrera {
 
-    public ServicioCarrera() {
-    }
-
     @GET
     public ArrayList<Carrera> getCarrera() {
         return Almacenamiento.getInstance().getListCarreras();
@@ -25,6 +22,7 @@ public class ServicioCarrera {
         for (int i = 0; i < Almacenamiento.getInstance().getListCarreras().size(); i++) {
             if (Almacenamiento.getInstance().getListCarreras().get(i).getId() == (carrera.getId())) {
                 Almacenamiento.getInstance().getListCarreras().get(i).setNombre(carrera.getNombre());
+                Almacenamiento.getInstance().getListCarreras().get(i).setFacultad(carrera.getFacultad());
                 return carrera;
             }
         }

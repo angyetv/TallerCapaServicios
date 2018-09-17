@@ -57,14 +57,14 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
         };
 
         $scope.guardarMateria = function () {
-            console.log('guarda materia'+$scope.datosFormulario);
+            console.log('guarda materia' + $scope.datosFormulario);
             $http.post("./webresources/ServicioMateria", $scope.datosFormulario)
                     .then(function (response) {
                         $scope.getMaterias();
                     });
             $scope.panelEditar = false;
         };
-        
+
         $scope.getCarrera = function () {
             $scope.lista = null;
             $http.get("./webresources/ServicioCarrera", {})
@@ -74,7 +74,7 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
                         alert("Error al consultar el Carreras");
                     });
         };
-        
+
         $scope.getProfesores = function () {
             $scope.lista = null;
             $http.get("./webresources/ServicioProfesor", {})
@@ -84,11 +84,11 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
                         alert("Error al consultar el Profesores");
                     });
         };
-        
+
         $scope.getProfesores();
         $scope.getCarrera();
         $scope.getMaterias();
-        
+
         $scope.guardarHorario = function () {
             $scope.datosFormulario.horario.push($scope.datosHorario);
             $('#modalHorario').modal('hide');
