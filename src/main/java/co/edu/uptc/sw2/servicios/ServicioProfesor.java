@@ -22,6 +22,8 @@ public class ServicioProfesor {
         for (int i = 0; i < Almacenamiento.getInstance().getListProfesors().size(); i++) {
             if (Almacenamiento.getInstance().getListProfesors().get(i).getId() == profesor.getId()) {
                 Almacenamiento.getInstance().getListProfesors().get(i).setNombres(profesor.getNombres());
+                Almacenamiento.getInstance().getListProfesors().get(i).setApellidos(profesor.getApellidos());
+                Almacenamiento.getInstance().getListProfesors().get(i).setDocumento(profesor.getDocumento());
                 return profesor;
             }
         }

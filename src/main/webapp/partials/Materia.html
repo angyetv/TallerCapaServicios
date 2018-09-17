@@ -117,7 +117,6 @@
             </table>
             <button type="button" class="btn btn-default"  ng-click="nuevoHorario()">Nuevo horario</button>
         </div>
-        
 
         <!-- Modal -->
         <div class="modal fade" id="modalHorario" role="dialog">
@@ -130,7 +129,6 @@
                 <h4 class="modal-title">Horarios</h4>
               </div>
               <div class="modal-body">
-                
                 <label for="dia">Día:</label>
                 <select id="dia" class="form-control" ng-model="datosHorario.diaSemana" >
                     <option value="1">Lunes</option>
@@ -140,9 +138,7 @@
                     <option value="5">Viernes</option>
                     <option value="6">Sábado</option>
                     <option value="7">Domingo</option>
-                    
                 </select>
-                
                 <label for="horaInicio">Hora inicio:</label>
                 <input id="horaInicio" 
                        class="form-control" 
@@ -155,7 +151,6 @@
                        type="time"
                        ng-model="datosHorario.horaFin"
                        placeholder="hora fin"/>
-                 
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-default" ng-click="guardarHorario()">Guardar</button>
@@ -165,9 +160,5 @@
 
           </div>
         </div>
-        
-        
-        
-            
     </div>
 </div>

@@ -6,7 +6,7 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
         $scope.listaCarrera = null;
         $scope.listaProfes = null;
 
-        $scope.datosFormulario = {horario: []};
+//        $scope.datosFormulario = {horario: []};
         $scope.panelEditar = false;
 
         //guardar
@@ -84,15 +84,26 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
                         alert("Error al consultar el Profesores");
                     });
         };
+        
+        $scope.getHorario = function () {
+            $scope.lista = null;
+            $http.get("./webresources/ServicioHorario", {})
+                    .then(function (response) {
+                        $scope.horario = response.data;
+                    }, function () {
+                        alert("Error al consultar Horario");
+                    });
+        };
 
         $scope.getProfesores();
         $scope.getCarrera();
         $scope.getMaterias();
+        $scope.getHorario();
 
         $scope.guardarHorario = function () {
             $scope.datosFormulario.horario.push($scope.datosHorario);
             $('#modalHorario').modal('hide');
-        }
+        };
     }]);
 
 

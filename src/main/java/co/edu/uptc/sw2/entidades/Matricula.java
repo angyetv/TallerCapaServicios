@@ -2,6 +2,7 @@ package co.edu.uptc.sw2.entidades;
 
 public class Matricula {
 
+    private int id;
     private int annio;
     private int semestre;
     private Materia materia;
@@ -42,5 +43,13 @@ public class Matricula {
 
     public void setEstudiante(Estudiante estudiante) {
         this.estudiante = estudiante;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
