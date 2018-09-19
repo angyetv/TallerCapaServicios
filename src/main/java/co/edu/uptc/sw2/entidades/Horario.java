@@ -16,7 +16,7 @@ public class Horario {
 
     public Horario() {
     }
-    
+
     public int getDia() {
         return dia;
     }

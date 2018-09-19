@@ -6,7 +6,7 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
         $scope.listaCarrera = null;
         $scope.listaProfes = null;
 
-//        $scope.datosFormulario = {horario: []};
+        $scope.datosFormulario = {horario: []};
         $scope.panelEditar = false;
 
         //guardar
