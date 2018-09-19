@@ -1,13 +1,16 @@
 package co.edu.uptc.sw2.entidades;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Horario {
 
     private int id;
     private int dia;
-    private int horaInicio;
-    private int horaFin;
+    private Date horaInicio;
+    private Date horaFin;
 
-    public Horario(int id, int dia, int horaInicio, int horaFin) {
+    public Horario(int id, int dia, Date horaInicio, Date horaFin) {
         this.dia = dia;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
@@ -25,19 +28,19 @@ public class Horario {
         this.dia = dia;
     }
 
-    public int getHoraInicio() {
+    public Date getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(int horaInicio) {
+    public void setHoraInicio(Date horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public int getHoraFin() {
+    public Date getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(int horaFin) {
+    public void setHoraFin(Date horaFin) {
         this.horaFin = horaFin;
     }
 
@@ -47,5 +50,10 @@ public class Horario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Horario{" + "id=" + id + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + '}';
     }
 }

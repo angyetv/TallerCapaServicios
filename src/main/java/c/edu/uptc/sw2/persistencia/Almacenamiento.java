@@ -52,9 +52,9 @@ public class Almacenamiento {
         this.listCarreras.add(new Carrera(1, "Ingenieria de Sistemas", listFacultads.get(0)));
         this.listCarreras.add(new Carrera(2, "Fisica", listFacultads.get(1)));
 
-        this.listHorarios.add(new Horario(1, 2, 10, 12));
-        this.listHorarios.add(new Horario(2, 3, 2, 4));
-        this.listMaterias.add(new Materia(1, "Ing Software", 4, listProfesors.get(0), listHorarios, listCarreras.get(0)));
+        this.listHorarios.add(new Horario(1, 2, new Date(), new Date()));
+        this.listHorarios.add(new Horario(2, 3, new Date(), new Date()));
+        this.listMaterias.add(new Materia(1, "Ing Software", 4, listHorarios, listProfesors.get(0), listCarreras.get(0)));
 
         listEstudiantes.add(new Estudiante(1, "Daniela", "Torres", "2015", "1049", new Date(), listCarreras.get(0), listMunicipios.get(0)));
     }

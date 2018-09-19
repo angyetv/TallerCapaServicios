@@ -57,7 +57,6 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
         };
 
         $scope.guardarMateria = function () {
-            console.log('guarda materia' + $scope.datosFormulario);
             $http.post("./webresources/ServicioMateria", $scope.datosFormulario)
                     .then(function (response) {
                         $scope.getMaterias();
@@ -85,20 +84,20 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
                     });
         };
         
-        $scope.getHorario = function () {
-            $scope.lista = null;
-            $http.get("./webresources/ServicioHorario", {})
-                    .then(function (response) {
-                        $scope.horario = response.data;
-                    }, function () {
-                        alert("Error al consultar Horario");
-                    });
-        };
+//        $scope.getHorario = function () {
+//            $scope.lista = null;
+//            $http.get("./webresources/ServicioHorario", {})
+//                    .then(function (response) {
+//                        $scope.horario = response.data;
+//                    }, function () {
+//                        alert("Error al consultar Horario");
+//                    });
+//        };
 
         $scope.getProfesores();
         $scope.getCarrera();
         $scope.getMaterias();
-        $scope.getHorario();
+//        $scope.getHorario();
 
         $scope.guardarHorario = function () {
             $scope.datosFormulario.horario.push($scope.datosHorario);

@@ -11,7 +11,7 @@ public class Materia {
     private ArrayList<Horario> horario;
     private Carrera carrera;
     
-    public Materia(int id, String nombre, int creditos, Profesor profesor,ArrayList<Horario> horario, Carrera carrera) {
+    public Materia(int id, String nombre, int creditos, ArrayList<Horario> horario, Profesor profesor, Carrera carrera) {
         this.nombre = nombre;
         this.creditos = creditos;
         this.profesor = profesor;

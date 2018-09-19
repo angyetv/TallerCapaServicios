@@ -105,7 +105,7 @@
                     </th>
                 </tr>
                 <tr ng-repeat="row in datosFormulario.horario">
-                    <td>{{row.diaSemana}}</td>
+                    <td>{{row.dia}}</td>
                     <td>{{row.horaInicio | date:'h:mma'}}</td>
                     <td>{{row.horaFin | date:'h:mma'}}</td>
                     <td>
@@ -130,7 +130,7 @@
               </div>
               <div class="modal-body">
                 <label for="dia">Día:</label>
-                <select id="dia" class="form-control" ng-model="datosHorario.diaSemana" >
+                <select id="dia" class="form-control" ng-model="datosHorario.dia" >
                     <option value="1">Lunes</option>
                     <option value="2">Martes</option>
                     <option value="3">Miercoles</option>
