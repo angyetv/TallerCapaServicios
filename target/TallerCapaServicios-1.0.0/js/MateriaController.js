@@ -20,6 +20,11 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
             $('#modalHorario').modal('show');
         };
 
+        $scope.editarHorario = function (datos) {
+            $scope.datosHorario = datos;
+            $('#modalHorario').modal('show');
+        };
+
         $scope.cancelar = function () {
             $scope.panelEditar = false;
             $scope.datosFormulario = {};
@@ -51,12 +56,22 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
                     .then(function (response) {
                         console.log(response.data);
                         $scope.lista = response.data;
+                        for (var i = 0; i < $scope.lista.length; i++) {
+                            for (var j = 0; j < $scope.lista[i].horario.length; j++) {
+                                var dat = $scope.lista[i].horario[j].horaFin.toString();
+                                $scope.lista[i].horario[j].horaFin = dat.slice(0, dat.length - 5);
+                                var datIni = $scope.lista[i].horario[j].horaInicio.toString();
+                                $scope.lista[i].horario[j].horaInicio = datIni.slice(0, datIni.length - 5);
+                            }
+                        }
+
                     }, function () {
                         alert("Error al consultar Materias");
                     });
         };
 
         $scope.guardarMateria = function () {
+            console.log($scope.datosFormulario.horario.dia);
             $http.post("./webresources/ServicioMateria", $scope.datosFormulario)
                     .then(function (response) {
                         $scope.getMaterias();
@@ -83,26 +98,41 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
                         alert("Error al consultar el Profesores");
                     });
         };
-        
-//        $scope.getHorario = function () {
-//            $scope.lista = null;
-//            $http.get("./webresources/ServicioHorario", {})
-//                    .then(function (response) {
-//                        $scope.horario = response.data;
-//                    }, function () {
-//                        alert("Error al consultar Horario");
-//                    });
-//        };
 
         $scope.getProfesores();
         $scope.getCarrera();
         $scope.getMaterias();
-//        $scope.getHorario();
 
         $scope.guardarHorario = function () {
             $scope.datosFormulario.horario.push($scope.datosHorario);
+            for (var i = 0; i < $scope.lista.length; i++) {
+                for (var j = 0; j < $scope.lista[i].horario.length; j++) {
+                }
+            }
+
             $('#modalHorario').modal('hide');
         };
+      
+        $scope.eliminarHorario = function (data) {
+            console.log('esta es la informacion de horario'+JSON.stringify(data));
+            if (confirm('\xbfDesea elminar este registro?')) {
+                for (var i = 0; i < $scope.lista.length; i++) {
+                    for (var j = 0; j < $scope.lista[i].horario.length; j++) {
+                        if ($scope.lista[i].horario[j] == data) {
+                            $scope.lista[i].horario.splice(j, 1);
+                            break;
+                        }else{
+                            $scope.datosFormulario = {};
+                        }
+                    }
+                }
+            }
+            $.ajax({
+                url: './webresources/ServicioEstudiante/eliminarHorario' + data,
+                type: 'DELETE'
+            });
+        };
+
     }]);
 
 

@@ -1,6 +1,7 @@
 package co.edu.uptc.sw2.servicios;
 
 import c.edu.uptc.sw2.persistencia.Almacenamiento;
+import co.edu.uptc.sw2.entidades.Horario;
 import co.edu.uptc.sw2.entidades.Materia;
 import java.util.ArrayList;
 import javax.ws.rs.DELETE;
@@ -12,10 +13,22 @@ import javax.ws.rs.PathParam;
 @Path("ServicioMateria")
 public class ServicioMateria {
 
-    public ServicioMateria() {
+    @DELETE
+    @Path("/eliminarHorario")
+    public void eliminarHorario(Horario horario) {
+        Materia materia = null;
+        System.out.println("este es el horario eliminado: "+horario);
+        for (int i = 0; i < Almacenamiento.getInstance().getListMaterias().size(); i++) {
+            for (int j = 0; j < Almacenamiento.getInstance().getListMaterias().get(i).getHorario().size(); j++) {
+                if (Almacenamiento.getInstance().getListMaterias().get(i).getHorario().get(j).getId() == horario.getId()) {
+                    Almacenamiento.getInstance().getListMaterias().get(i).getHorario().remove(horario);
+                    materia = Almacenamiento.getInstance().getListMaterias().get(i);
+                    break;
+                }
+            }
+        }
     }
 
-    
     @GET
     public ArrayList<Materia> getMaterias() {
         return Almacenamiento.getInstance().getListMaterias();
@@ -47,4 +60,5 @@ public class ServicioMateria {
             }
         }
     }
+
 }

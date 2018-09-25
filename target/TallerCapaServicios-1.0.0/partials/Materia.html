@@ -35,7 +35,7 @@
                 <td class="row">
                     <ul>
                         <li ng-repeat="rowHorario in row.horario">
-                            {{rowHorario.dia}} {{rowHorario.horaFin | date:'h:mma'}} {{rowHorario.horaInicio | date:'h:mma'}}
+                            {{rowHorario.dia}} {{rowHorario.horaFin | date:'mediumTime'}} {{rowHorario.horaInicio | date:'mediumTime'}}
                         </li>
                     </ul>
                     
@@ -103,6 +103,9 @@
                     <th>
                         Eliminar
                     </th>
+                    <th>
+                        Editar
+                    </th>
                 </tr>
                 <tr ng-repeat="row in datosFormulario.horario">
                     <td>{{row.dia}}</td>
@@ -111,6 +114,11 @@
                     <td>
                         <button type="button" class="btn btn-default" ng-click="eliminarHorario(row)">
                             <span class="glyphicon glyphicon-remove"></span>Eliminar
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-default" ng-click="editarHorario(row)">
+                            <span class="glyphicon glyphicon-pencil"></span>Editar
                         </button>
                     </td>
                 </tr>

@@ -1,6 +1,5 @@
 package co.edu.uptc.sw2.entidades;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public class Horario {
