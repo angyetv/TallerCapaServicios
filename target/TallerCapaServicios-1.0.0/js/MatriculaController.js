@@ -66,7 +66,7 @@ module.controller('MatriculaCtrl', ['$scope', '$filter', '$http', function ($sco
                         console.log(response.data);
                         $scope.lista = response.data;
                     }, function () {
-                        alert("Error al consultar el Municipios");
+                        alert("Error al consultar el Matrucula");
                     });
         };
 
@@ -100,5 +100,6 @@ module.controller('MatriculaCtrl', ['$scope', '$filter', '$http', function ($sco
         };
 
         $scope.getMatricula();
+        $scope.getMaterias();
         $scope.getEstudiantes();
     }]);

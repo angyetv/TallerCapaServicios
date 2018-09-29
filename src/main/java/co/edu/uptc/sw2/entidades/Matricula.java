@@ -1,16 +1,32 @@
 package co.edu.uptc.sw2.entidades;
 
+import java.util.ArrayList;
+
 public class Matricula {
 
     private int id;
     private int annio;
     private int semestre;
-    private Materia materia;
+    private ArrayList<Materia> materias;
     private Estudiante estudiante;
 
-    public Matricula(int annio, int semestre) {
+    public Matricula() {
+    }
+
+    public Matricula(int id, int annio, int semestre, ArrayList<Materia> materias, Estudiante estudiante) {
+        this.id = id;
         this.annio = annio;
         this.semestre = semestre;
+        this.materias = materias;
+        this.estudiante = estudiante;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getAnnio() {
@@ -29,12 +45,12 @@ public class Matricula {
         this.semestre = semestre;
     }
 
-    public Materia getMateria() {
-        return materia;
+    public ArrayList<Materia> getMaterias() {
+        return materias;
     }
 
-    public void setMateria(Materia materia) {
-        this.materia = materia;
+    public void setMaterias(ArrayList<Materia> materias) {
+        this.materias = materias;
     }
 
     public Estudiante getEstudiante() {
@@ -43,13 +59,5 @@ public class Matricula {
 
     public void setEstudiante(Estudiante estudiante) {
         this.estudiante = estudiante;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

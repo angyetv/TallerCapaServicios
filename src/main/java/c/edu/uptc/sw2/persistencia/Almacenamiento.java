@@ -55,8 +55,10 @@ public class Almacenamiento {
         this.listHorarios.add(new Horario(1, 2, new Date(), new Date()));
         this.listHorarios.add(new Horario(2, 3, new Date(), new Date()));
         this.listMaterias.add(new Materia(1, "Ing Software", 4, listHorarios, listProfesors.get(0), listCarreras.get(0)));
+        this.listMaterias.add(new Materia(2, "Ing Software II", 4, listHorarios, listProfesors.get(0), listCarreras.get(0)));
 
-        listEstudiantes.add(new Estudiante(1, "Daniela", "Torres", "2015", "1049", new Date(), listCarreras.get(0), listMunicipios.get(0)));
+        this.listEstudiantes.add(new Estudiante(1, "Daniela", "Torres", "2015", "1049", new Date(), listCarreras.get(0), listMunicipios.get(0)));
+        this.listMatriculas.add(new Matricula(1, 2015, 1, listMaterias, listEstudiantes.get(0)));
     }
 
     public ArrayList<Estudiante> getListEstudiantes() {
