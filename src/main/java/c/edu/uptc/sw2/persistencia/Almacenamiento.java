@@ -47,8 +47,8 @@ public class Almacenamiento {
         listFacultads.add(new Facultad(3, "Educacion"));
         listFacultads.add(new Facultad(4, "Ciencias Economicas y Administrativas"));
 
-        this.listProfesors.add(new Profesor(1, "Daniela", "Torres", "1234"));
-        this.listProfesors.add(new Profesor(2, "Pedro", "Aguirre", "1234"));
+        this.listProfesors.add(new Profesor(1, "Daniel", "Aperador", "1234"));
+        this.listProfesors.add(new Profesor(2, "Deisy", "Diaz", "1234"));
         this.listCarreras.add(new Carrera(1, "Ingenieria de Sistemas", listFacultads.get(0)));
         this.listCarreras.add(new Carrera(2, "Fisica", listFacultads.get(1)));
 
@@ -58,7 +58,9 @@ public class Almacenamiento {
         this.listMaterias.add(new Materia(2, "Ing Software II", 4, listHorarios, listProfesors.get(0), listCarreras.get(0)));
 
         this.listEstudiantes.add(new Estudiante(1, "Daniela", "Torres", "2015", "1049", new Date(), listCarreras.get(0), listMunicipios.get(0)));
+        this.listEstudiantes.add(new Estudiante(1, "Pedro", "Aguirre", "2015", "1049", new Date(), listCarreras.get(0), listMunicipios.get(0)));
         this.listMatriculas.add(new Matricula(1, 2015, 1, listMaterias, listEstudiantes.get(0)));
+        this.listMatriculas.add(new Matricula(2, 2015, 1, listMaterias, listEstudiantes.get(1)));
     }
 
     public ArrayList<Estudiante> getListEstudiantes() {

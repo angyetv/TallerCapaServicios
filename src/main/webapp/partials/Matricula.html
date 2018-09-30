@@ -9,28 +9,28 @@
         <table class="resultados table table-striped">
             <tr>
                 <th>
-                   Año
+                    Año
                 </th>
                 <th>
-                   Semestre
+                    Semestre
                 </th>
                 <th>
-                   Estudiante
+                    Estudiante
                 </th>
                 <th>
-                   Materias
+                    Materias
                 </th>
                 <th>
                 </th>
             </tr>
             <tr ng-repeat="row in lista">
-                <td>{{row.anio}}</td>
+                <td>{{row.annio}}</td>
                 <td>{{row.semestre}}</td>
                 <td>{{row.estudiante.nombre}}</td>
                 <td class="row"><select disabled size="2" multiple class="form-control" 
-                        ng-model="datosFormulario.materias"
-                        ng-options="option.nombre for option in row.materias">
-                        </select></td>
+                                        ng-model="datosFormulario.materias"
+                                        ng-options="option.nombre for option in row.materias">
+                    </select></td>
                 <td class="row">
                     <button type="button" class="btn btn-default" ng-click="editar(row);searchMat(row.estudiante.carrera)">
                         <span class="glyphicon glyphicon-pencil"></span>Editar
@@ -54,7 +54,7 @@
             <input id="anio" 
                    class="form-control" 
                    type="number"
-                   ng-model="datosFormulario.anio"
+                   ng-model="datosFormulario.annio"
                    placeholder="Año"/>
             <label for="semestre">Semestre</label>
             <input id="semestre" 
@@ -64,21 +64,21 @@
                    placeholder="Semestre"/>
             <label for="estudiante">Estudiante</label>
             <select id="estudiante" class="form-control" 
-                        ng-model="datosFormulario.estudiante"
-                        ng-change="searchMat(datosFormulario.estudiante.carrera)"
-                        ng-options="option.nombre+' '+option.apellido for option in listaEstudia track by option.id">
+                    ng-model="datosFormulario.estudiante"
+                    ng-change="searchMat(datosFormulario.estudiante.carrera)"
+                    ng-options="option.nombre + ' ' + option.apellido for option in listaEstudia track by option.id">
             </select>
             <label for="materias">Materias</label>
             <select multiple id="materias" class="form-control" 
-                        ng-model="datosFormulario.materias"
-                        ng-options="option.nombre for option in matCarr track by option.id">
+                    ng-model="datosFormulario.materias"
+                    ng-options="option.nombre for option in matCarr track by option.id">
             </select>
-                
+
             <div ng-show="errores.estudiante">{{errores.estudiante}}</div>
         </div> 
         <div class="row">
             <div class="form-group col-md-6" ng-class="errores.facultad ? 'error' : ''">
-                
+
                 <div ng-show="errores.facultad">{{errores.facultad}}</div>
             </div>
         </div>
