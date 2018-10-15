@@ -40,25 +40,28 @@ public class Almacenamiento {
         this.listMunicipios.add(new Municipio(1, "Umbita"));
         this.listMunicipios.add(new Municipio(2, "Tunja"));
         this.listMunicipios.add(new Municipio(3, "Duitama"));
-//        this.listMunicipios.add(new Municipio("Sogamoso"));
+        this.listMunicipios.add(new Municipio(4, "Sogamoso"));
 
-        listFacultads.add(new Facultad(1, "Ingenieria"));
-        listFacultads.add(new Facultad(2, "Ciencias"));
-        listFacultads.add(new Facultad(3, "Educacion"));
-        listFacultads.add(new Facultad(4, "Ciencias Economicas y Administrativas"));
+        this.listFacultads.add(new Facultad(1, "Ingenieria"));
+        this.listFacultads.add(new Facultad(2, "Ciencias"));
+        this.listFacultads.add(new Facultad(3, "Educacion"));
+        this.listFacultads.add(new Facultad(4, "Ciencias Economicas y Administrativas"));
 
         this.listProfesors.add(new Profesor(1, "Daniel", "Aperador", "1234"));
         this.listProfesors.add(new Profesor(2, "Deisy", "Diaz", "1234"));
+
         this.listCarreras.add(new Carrera(1, "Ingenieria de Sistemas", listFacultads.get(0)));
         this.listCarreras.add(new Carrera(2, "Fisica", listFacultads.get(1)));
 
         this.listHorarios.add(new Horario(1, 2, new Date(), new Date()));
         this.listHorarios.add(new Horario(2, 3, new Date(), new Date()));
-        this.listMaterias.add(new Materia(1, "Ing Software", 4, listHorarios, listProfesors.get(0), listCarreras.get(0)));
-        this.listMaterias.add(new Materia(2, "Ing Software II", 4, listHorarios, listProfesors.get(0), listCarreras.get(0)));
+
+        this.listMaterias.add(new Materia(1, "Ing Software I", 4, listHorarios, listProfesors.get(0), listCarreras.get(0)));
+        this.listMaterias.add(new Materia(2, "Ing Software II", 4, listHorarios, listProfesors.get(1), listCarreras.get(0)));
 
         this.listEstudiantes.add(new Estudiante(1, "Daniela", "Torres", "2015", "1049", new Date(), listCarreras.get(0), listMunicipios.get(0)));
-        this.listEstudiantes.add(new Estudiante(1, "Pedro", "Aguirre", "2015", "1049", new Date(), listCarreras.get(0), listMunicipios.get(0)));
+        this.listEstudiantes.add(new Estudiante(1, "Pedro", "Aguirre", "2015", "1049", new Date(), listCarreras.get(1), listMunicipios.get(2)));
+
         this.listMatriculas.add(new Matricula(1, 2015, 1, listMaterias, listEstudiantes.get(0)));
         this.listMatriculas.add(new Matricula(2, 2015, 1, listMaterias, listEstudiantes.get(1)));
     }

@@ -1,0 +1,9 @@
+#surefire
+#Mon Oct 15 12:49:59 COT 2018
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=C\:\\Users\\USUARIO\\Documents\\GitHub\\TallerCapaServicios
+file.encoding=UTF-8
+localRepository=C\:\\Users\\USUARIO\\.m2\\repository
+netbeans.deploy=true
+netbeans.deploy.clientUrlPart=/index.html
+basedir=C\:\\Users\\USUARIO\\Documents\\GitHub\\TallerCapaServicios

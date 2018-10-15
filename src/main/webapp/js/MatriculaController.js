@@ -52,9 +52,9 @@ module.controller('MatriculaCtrl', ['$scope', '$filter', '$http', function ($sco
                     break;
                 }
             }
-            console.log("Eliminado " + data.nombre);
+            console.log("Eliminado " + data.estudiante.nombre);
             $.ajax({
-                url: './webresources/ServicioMatricula/' + data.nombre,
+                url: './webresources/ServicioMatricula/' + data.id,
                 type: 'DELETE'
             });
         };
